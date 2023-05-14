@@ -1,0 +1,76 @@
+<html>
+<head>
+    <title>Agregar Proveedor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        div {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        input{
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Agregar Proveedor</h1>
+    <form method="post">
+        {% csrf_token %}
+        <div>
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required>
+        </div>
+
+        <div>
+            <label for="apellido">Apellido:</label>
+            <input type="text" id="apellido" name="apellido" required>
+        </div>
+        
+        <div>
+            <label for="dni">DNI:</label>
+            <input type="number" id="dni" name="dni" required>
+        </div>       
+        
+        <button type="submit">Agregar Proveedor</button>
+    </form>
+    <p style="margin-bottom: 20px;"><a href="{% url 'lista_proveedores' %}">Ver lista de proveedores</a></p>
+</body>
+</html>

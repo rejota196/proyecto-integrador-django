@@ -1,0 +1,83 @@
+<html>
+<head>
+    <title>Agregar Producto</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        div {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        input, select {
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Agregar Producto</h1>
+    <form method="post">
+        {% csrf_token %}
+        <div>
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required>
+        </div>
+        <div>
+            <label for="precio">Precio:</label>
+            <input type="number" id="precio" name="precio" step="0.01" required>
+        </div>
+        <div>
+            <label for="stock_actual">Stock Actual:</label>
+            <input type="number" id="stock_actual" name="stock_actual" required>
+        </div>
+        <div>
+            <label for="proveedor">Proveedor:</label>
+            <select id="proveedor" name="proveedor" required>
+                <option value="" disabled selected>Selecciona un proveedor</option>
+                {% for proveedor in proveedores %}
+                <option value="{{ proveedor.id }}">{{ proveedor.nombre }}</option>
+                {% endfor %}
+            </select>
+            <a href="{% url 'agregar_proveedor' %}">Agregar proveedor</a>
+        </div>
+        <button type="submit">Agregar Producto</button>
+    </form>
+    <p style="margin-bottom: 20px;"><a href="{% url 'lista_productos' %}">Ver lista de productos</a></p>
+</body>
+</html>

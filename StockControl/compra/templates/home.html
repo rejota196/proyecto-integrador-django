@@ -1,0 +1,54 @@
+<html>
+<head>
+    <title>Menú de opciones</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        div {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        a {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+
+        a:hover {
+            background-color: #3e8e41;
+        }
+    </style>
+</head>
+<body>
+    <h1>Menú de opciones</h1>
+    <div>
+        <a href="{% url 'agregar_producto' %}">Cargar producto</a>
+        <a href="{% url 'agregar_proveedor' %}">Cargar proveedor</a>
+        <a href="{% url 'lista_productos' %}">Listado de productos</a>
+        <a href="{% url 'lista_proveedores' %}">Listado de proveedores</a>
+    </div>
+</body>
+</html>
